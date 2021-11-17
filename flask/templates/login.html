@@ -65,15 +65,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/appointment" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">book appointment</a>
             </div>
             
             <!-- Collect the nav links, forms, and other content for toggling -->            
             <div class="collapse navbar-collapse" id="main_nav">                
                 <ul class="nav navbar-nav navbar-right">
-                    <li class=" dropdown">
-                        <a href="/">Home</a>
-                    </li>
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">services</a>
                         <ul class="dropdown-menu">
@@ -86,7 +82,7 @@
                     <li><a href="/about">About us</a></li>
                     <li><a href="/contact">contact</a></li>
                     <li class="active"><a href="/login">Login</a></li> -->
-                    <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">book appointment</a></li>
+                    <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">book appointment</a></li> -->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
@@ -102,16 +98,7 @@
         </div>
     </section>
     
-    <section class="row breadcrumbRow">
-        <div class="container">
-            <div class="row inner m0">
-                <ul class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Login</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+
    
     
     <section class="row contact_form_row">
@@ -125,31 +112,17 @@
                     <div class="contactForm row m0">
                         <form action="https://themedesigner.in/demo/MedicalPRO/contact_process.php" class="row contact_form" id="contactForm">
                             <div class="row m0">
-                                <div >
-                                    <div class="input-group">
-                                        <label for="contact_fname">Username</label>
-                                        <input type="text" class="form-control" id="contact_fname" name="contact_fname">
-                                    </div>
-                                    <!-- <div class="input-group">
-                                        <label for="contact_femail">E-mail Address</label>
-                                        <input type="email" class="form-control" id="contact_femail" name="contact_femail">
-                                    </div> -->
-                                </div>
-                                <div >
-                                    <!-- <div class="input-group">
-                                        <label for="contact_lname">Last Name</label>
-                                        <input type="text" class="form-control" id="contact_lname" name="contact_lname">
-                                    </div> -->
-                                    <div class="input-group">
-                                        <label for="contact_fphone">Password</label>
-                                        <input type="tel" class="form-control" id="contact_fphone" name="contact_fphone">
-                                    </div>
-                                </div>
+                                <form class="user" method="post">
+                                    <div class="form-group"><input class="form-control form-control-user" type="text" id="exampleInputEmail" placeholder="User Name..." name="user_name"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
+                                    <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
+                                    <hr>
+                                </form>
                             </div>
                             
                             <div class="row m0">
                                 <div class="col-sm-12">
-                                    <input type="submit" class="submit_btn" value="submit">
+                                    <a href="{{url_for('analysis')}}"><input type="submit" class="btn btn-primary btn-block text-white btn-user" value="Submit"></a>
                                 </div>
                             </div>
                         </form>
@@ -260,10 +233,10 @@
     </footer>
     
     
-       <div class="modal fade" id="appointmefnt_form_pop" tabindex="-1" role="dialog" aria-labelledby="appointmefnt_form_pop">
+    <div class="modal fade" id="appointmefnt_form_pop" tabindex="-1" role="dialog" aria-labelledby="appointmefnt_form_pop">
         <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content form">
-                <form action="/MailMe" class="row m0 appointment_home_form2 form" method="post">                       
+            <div class="modal-content">
+                <form action="#" class="row m0 appointment_home_form2">                       
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-times-circle-o"></i>
                         </button>
@@ -272,40 +245,40 @@
                             <div class="row m0 input_row">
                                 <div class="col-sm-12 col-md-12 col-lg-6 p0">
                                     <label for="app_fname">First Name</label>
-                                    <input type="text" name="app_fname" class="form-control" id="app_fname" placeholder="Kartik" required>
+                                    <input type="text" class="form-control" id="app_fname" placeholder="Kartik">
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6 p0">
                                     <label for="app_lname">Last Name</label>
-                                    <input type="text" class="form-control" name="app_lname" id="app_lname" placeholder="Arora" required>
+                                    <input type="text" class="form-control" id="app_lname" placeholder="Arora">
                                 </div>
                             </div>
                             <div class="row m0 input_row">
                                 <label for="app_email">Email Address</label>
-                                <input type="email" class="form-control" id="app_email" name="app_email"placeholder="kartik@gmail.com" required>
+                                <input type="email" class="form-control" id="app_email" placeholder="kartik@gmail.com">
                             </div>
                             <div class="row m0 input_row">
                                 <label for="app_phone">Phone Number</label>
-                                <input type="tel" class="form-control" id="app_phone" name="app_phone" placeholder="98732XXXXX" required>
+                                <input type="tel" class="form-control" id="app_phone" placeholder="98732XXXXX">
                             </div>
                             <div class="row m0 input_row">
                                 <label for="app_phone">Select Department</label> <br>  <br>
-                                    <select name="department_name" id="department_name" name="department_name"style="padding: 5px;width:100%;" required>
-                                        <option value="Department1">Department1</option>
-                                        <option value="Department2">Department2</option>
-                                        <option value="Department3">Department3</option>
-                                        <option value="Department4">Department4</option>
-                                    </select>
+                                <select name="doctor_name" id="doctor_name" style="padding: 5px;width:100%;" >
+                                    <option value="Department1">Department1</option>
+                                    <option value="Department2">Department2</option>
+                                    <option value="Department3">Department3</option>
+                                    <option value="Department4">Department4</option>
+                                </select>
                             </div>
-                           <div class="row m0 input_row">
+                            <div class="row m0 input_row">
                                 <label for="app_date">Booking Date</label>                                
                                 <div class="input-append date">
-                                    <input type="text" class="form-control" name="date" id="app_date" name="app_date" placeholder="Select the Appointment Date">
+                                    <input type="text" class="form-control" name="date" id="app_date" placeholder="Select the Appointment Date">
                                     <span class="add-on"><i class="icon-th"></i></span>
                                 </div>
                             </div>
                             <div class="row m0 input_row">
                                 <label for="app_texts">Symptoms</label>
-                                <textarea  id="app_texts" class="form-control" name="app_texts" placeholder="Headache, fever and cold" required></textarea>
+                                <textarea  id="app_texts" class="form-control" placeholder="Headache, fever and cold"></textarea>
                             </div>
                             <input type="submit" class="form-control" value="book your appointment now">
                         </div>
@@ -316,7 +289,6 @@
             </div>
         </div>
     </div>
-
     
     <!--jQuery, Bootstrap and other vendor JS-->
     
