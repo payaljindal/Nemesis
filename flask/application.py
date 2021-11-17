@@ -26,6 +26,11 @@ def contact():
 def doctors():
 	return render_template('doctors.html')
 
+
+@app.route('/predict')
+def predict():
+	return render_template('predict.html')
+
 @app.route('/appointment')
 def appointment():
 	return render_template('book-appointment.html')
