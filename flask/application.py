@@ -1,5 +1,12 @@
 from flask import Flask,render_template,request,jsonify
 from flask_mail import Mail,Message 
+from flask import Flask,render_template,request
+import pandas as pd
+import pickle
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import make_classification
+rf = pickle.load(open('/home/abhimat/Desktop/Nemesis-main/flask/finalized_model.sav', 'rb'))
+
 
 app=Flask(__name__)
 app.config['MAIL_SERVER']='smtp.gmail.com'
@@ -11,11 +18,11 @@ app.config['MAIL_PASSWORD']='Demo@123'
 app.config['MAIL_DEFAULT_SENDER']='nemesisunited01@gmail.com'
 mail=Mail(app)
 
-@app.route('/')
+@app.route('/index')
 def index():
 	return render_template('index.html')
 
-@app.route('/login',)
+@app.route('/',)
 def login():
 	return render_template("login.html") 
 
@@ -36,9 +43,50 @@ def doctors():
 	return render_template('doctors.html')
 
 
-@app.route('/predict')
+@app.route('/predict', methods=['GET','POST'])
 def predict():
-	return render_template('predict.html')
+	if request.method == 'POST':
+		#name = request.form['name']
+		#email = request.form['email']
+		i = request.form.get('age',type=int)
+		race = request.form['race']
+		ethnicity = request.form['eth']
+		gender = request.form['gender']
+		health = request.form['healthcare']
+
+		X = pd.DataFrame()
+		X['HEALTHCARE_COVERAGE'] = [health]
+		if i >= 60:
+			X['Age'] = [1]
+		elif (i >= 25 and i < 60):
+			X['Age'] = [2]
+		else:
+			X['Age'] = [3]
+		
+		if race == 'White':
+			X['Race'] = [1]
+		else:
+			X['Race'] = [0]
+
+		if ethnicity == 'Nonhispanic':
+			X['ETHNICITY_nonhispanic'] = 1
+		else:
+			X['ETHNICITY_nonhispanic'] = 0
+		
+		if gender == 'F':
+			X['GENDER_F'] = [1]
+		else:
+			X['GENDER_F'] = [0]
+		
+		arr = rf.predict(X)
+
+		if arr[0] == 0:
+			return render_template('predict.html',msg = "Patient Required Assistance")
+		else:
+			return render_template('predict.html',msg = "Patient Not Required Assistance")
+	
+	return render_template('predict.html',msg = "Fill Patient Details")
+
 
 @app.route('/appointment')
 def appointment():
