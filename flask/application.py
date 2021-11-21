@@ -157,7 +157,7 @@ def remail():
 		msg1=Message(
 			subject='Reminder Set',
 			recipients=[email],
-			body="You will recieve medication reminder 10minutes before it should be taken"
+			body="You will recieve medication reminder 10 minutes before its scheduled time"
 		)
 		mail.send(msg1)
 		return render_template("index.html",text="Reminders Set")
@@ -171,7 +171,7 @@ def ordermail():
 		msg1=Message(
 			subject='Medicines Ordered',
 			recipients=[email],
-			body="Medicines ordered successfully.\nYou will receive order within 5days."
+			body="Medicines ordered successfully.\nYou will receive order within 5 days."
 		)
 		mail.send(msg1)
 		return render_template("index.html",text="Ordered Medicines")
@@ -189,7 +189,7 @@ def contactmail():
 		msg1=Message(
 			subject='Problem Received',
 			recipients=[emailid],
-			body="{} {}, we successfully receieved your problem.\n\nThe problem statement id as below\n{}\n".format(fname,lname,problem)
+			body="{} {}, \n\n We successfully receieved your problem.\n\nThe problem specified below\n{}\n".format(fname,lname,problem)
 		)
 		mail.send(msg1)
 		return render_template("index.html",text="Successfully Sent")
@@ -211,7 +211,7 @@ def MailMe():
 		msg=Message(
 			subject='Confirmation mail',
 			recipients=[email],
-			body="Recieved your request to setup up the appointment on 25/11/2021"
+			body="Recieved your request to setup up the appointment on 25/11/2021, doctor will confirm it soon"
 		)
 		mail.send(msg)
 
