@@ -119,6 +119,37 @@ def predict():
 def appointment():
 	return render_template('book-appointment.html')
 
+
+@app.route('/camail', methods=['POST', 'GET'])
+def camail():
+	global email
+	try:
+		msg1=Message(
+			subject='Confirmed Appointment',
+			recipients=[email],
+			body="Your appointment is confirmed"
+		)
+		mail.send(msg1)
+		return render_template("index_doctors.html")
+	except Exception:
+		return render_template("index_doctors.html")
+
+@app.route('/uqmail', methods=['POST', 'GET'])
+def uqmail():
+	global email
+	reply=request.form.get("reply")
+	
+	try:
+		msg1=Message(
+			subject='Reply to query',
+			recipients=[email],
+			body="SSN Number: 78998789\nName: Abhimat Gupta\nEmail: abhimatg0004@gmail.com\nProblem Description: Fever doesn't respond to medication\n\nReply: {}".format(reply)
+		)
+		mail.send(msg1)
+		return render_template("index_doctors.html")
+	except Exception:
+		return render_template("index_doctors.html")
+	
 @app.route('/remail', methods=['POST', 'GET'])
 def remail():
 	global email
