@@ -18,4 +18,6 @@ Basically,  <br>
 
 Notebook Link - https://colab.research.google.com/drive/1UdvSga4UeaUBioDXcXroZb4JaWAWpgO0?authuser=1#scrollTo=Zz5rlNk7OBEU
 
+Video Link - https://drive.google.com/file/d/1zeuRW4n4oD3cg3TxQIkcR86KAUN3D2Tu/view?usp=sharing
+
 
