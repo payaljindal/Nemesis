@@ -1,11 +1,13 @@
 from flask import Flask,render_template,request,jsonify
 from flask_mail import Mail,Message 
+from flask import Flask,render_template,request,jsonify,redirect,url_for
+from flask_mail import Mail,Message 
 from flask import Flask,render_template,request
 import pandas as pd
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import make_classification
-#rf = pickle.load(open('/home/abhimat/Desktop/Case Files/Nemesis-main/flask/finalized_model.sav', 'rb'))
+rf = pickle.load(open('/home/abhimat/Desktop/Case Files/Nemesis-main/flask/finalized_model.sav', 'rb'))
 
 
 app=Flask(__name__)
@@ -18,20 +20,39 @@ app.config['MAIL_PASSWORD']='Demo@123'
 app.config['MAIL_DEFAULT_SENDER']='nemesisunited01@gmail.com'
 mail=Mail(app)
 
-
-email="abhimatg0004@gmail.com"
-
 @app.route('/index')
 def index():
-	return render_template('index.html')
+	return render_template("index.html") 
 
-@app.route('/',)
+
+@app.route('/index_doctors')
+def index_doctors():
+	return render_template("index_doctors.html") 
+
+
+@app.route('/patient_query')
+def patient_query():
+	return render_template("patient_query.html") 
+
+
+@app.route('/patient_appointments')
+def patient_appointments():
+	return render_template("patient_appointments.html") 
+
+
+@app.route('/', methods=['GET','POST'])
 def login():
-	return render_template("login.html") 
+	if request.method == 'POST':
+		u_name = request.form['user_name']
+		if len(u_name) != 0:
+			if u_name == "abhi0444":
+				return redirect(url_for("index"))
+			else:
+				return redirect(url_for("index_doctors"))
+	
+	return render_template('login.html')  
 
-@app.route('/analysis')
-def analysis():
-	return render_template('analysis.html')  
+
 
 @app.route('/about')
 def about():
