@@ -72,7 +72,7 @@
             <div class="collapse navbar-collapse" id="main_nav">                
                 <ul class="nav navbar-nav navbar-right">
                     <li class=" dropdown">
-                        <a href="/">Home</a>
+                        <a href="/index">Home</a>
                     </li>
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">services</a>
@@ -81,10 +81,12 @@
                             <li><a href="single-service.html">single service</a></li>
                         </ul>
                     </li> -->
-                   
+                    <li class="active"><a href="/order">Order Medicines</a></li>
                     <li><a href="/analysis">Analysis</a></li>
                     <li><a href="/about">About us</a></li>
                     <li><a href="/contact">contact</a></li>
+                    <li><a href="/">Logout</a></li>
+
                     <!-- <li class="active"><a href="/login">Login</a></li> -->
                     <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">book appointment</a></li>
                 </ul>
@@ -106,8 +108,8 @@
         <div class="container">
             <div class="row inner m0">
                 <ul class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Order</li>
+                    <li><a href="/index">Home</a></li>
+                    <li>Order medicine</li>
                 </ul>
             </div>
         </div>
@@ -127,7 +129,7 @@
                             <div class="row m0">
                                 <div >
                                     <div class="input-group">
-                                        <label for="contact_fname">Patient id</label>
+                                        <label for="contact_fname">SNN Number</label>
                                         <input type="text" class="form-control" id="contact_fname" name="contact_fname">
                                     </div>
                                  
@@ -149,9 +151,20 @@
                                  
                                 </div>
                             </div>
+
+                            <div class="row m0">
+                                <div >
+                                    <div class="input-group">
+                                        <label for="contact_fname">Card Number</label>
+                                        <input type="text" class="form-control" id="contact_fname" name="contact_fname">
+                                    </div>
+                                 
+                                </div>
+                            </div>
+
                             <div class="row m0">
                                 <div class="col-sm-12">
-                                    <input type="submit" class="submit_btn" value="submit">
+                                    <input type="submit" class="submit_btn" value="submit  request">
                                 </div>
                             </div>
                         </form>
@@ -186,7 +199,7 @@
                     <div class="heading row m0"><img src="{{url_for('static',filename='images/logo/1.png')}}" alt=""></div>
                     <div class="row menuList">
                         <ul class="firstOrderList nav">
-                            <li ><a href="/">home</a></li>
+                            <li ><a href="/index">home</a></li>
                             <!-- <li><a href="#">services</a></li> -->
                             <li><a href="/doctors">doctors</a></li>
                         
