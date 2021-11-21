@@ -16,4 +16,6 @@ Basically,  <br>
 **Backend** - Flask <br>
 **Python** for analysis part
 
+Notebook Link - https://colab.research.google.com/drive/1UdvSga4UeaUBioDXcXroZb4JaWAWpgO0?authuser=1#scrollTo=Zz5rlNk7OBEU
+
 
