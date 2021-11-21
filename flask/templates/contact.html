@@ -80,10 +80,12 @@
                             <li><a href="single-service.html">single service</a></li>
                         </ul>
                     </li> -->
-                    <li> <a href="/predict">Predict</a></li>
+                    <li><a href="/order">Order Medicines</a></li>
                     <li><a href="/analysis">Analysis</a></li>
                     <li><a href="/about">About us</a></li>
                     <li class="active"><a href="/contact">contact</a></li>
+                    <li><a href="/">Logout</a></li>
+
                     <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">book appointment</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -94,8 +96,8 @@
         <div class="row m0 inner">
             <div class="container">
                 <div class="row">
-                    <h5>contact us</h5>
-                    <h2>get in touch with doctor</h2>
+                    <h5>contact doctor</h5>
+                    <h2>get in touch with your doctor</h2>
                 </div>
             </div>
         </div>
@@ -105,8 +107,8 @@
         <div class="container">
             <div class="row inner m0">
                 <ul class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>contact us</li>
+                    <li><a href="/index">Home</a></li>
+                    <li>contact doctor</li>
                 </ul>
             </div>
         </div>
@@ -160,7 +162,7 @@
                             </div>
                             <div class="row m0">
                                 <div class="col-sm-12">
-                                    <label for="contact_fmsg">Your Query</label>
+                                    <label for="contact_fmsg">Your Problem</label>
                                     <textarea name="contact_fmsg" id="contact_fmsg" class="form-control"></textarea>
                                 </div>
                             </div>
@@ -225,7 +227,7 @@
                     <div class="heading row m0"><img src="{{url_for('static',filename='images/logo/1.png')}}" alt=""></div>
                     <div class="row menuList">
                         <ul class="firstOrderList nav">
-                            <li ><a href="/">home</a></li>
+                            <li ><a href="/index">home</a></li>
                             <!-- <li><a href="#">services</a></li> -->
                             <li><a href="/doctors">doctors</a></li>
                             <li ><a href="/analysis">Analysis</a></li>
