@@ -98,9 +98,6 @@
         </div>
     </section>
     
-
-   
-    
     <section class="row contact_form_row">
         <div class="container">
             <div class="row">
@@ -110,32 +107,19 @@
                 <div class="col-sm-6 contact_form_area">
                     <h3 class="contact_section_title">Fill your credentials here</h3>
                     <div class="contactForm row m0">
-                        <form action="https://themedesigner.in/demo/MedicalPRO/contact_process.php" class="row contact_form" id="contactForm">
+                        <form method="post" class="row contact_form">
                             <div class="row m0">
-                                <form class="user" method="post">
                                     <div class="form-group"><input class="form-control form-control-user" type="text" id="exampleInputEmail" placeholder="User Name..." name="user_name"></div>
                                     <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
                                     <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
                                     <hr>
-                                </form>
                             </div>
-                            
                             <div class="row m0">
                                 <div class="col-sm-12">
-                                    <a href="{{url_for('analysis')}}"><input type="submit" class="btn btn-primary btn-block text-white btn-user" value="Submit"></a>
+                                    <input type="submit" class="submit_btn" value="submit">
                                 </div>
                             </div>
                         </form>
-                        <div id="success">
-                            <span class="green textcenter">
-                                Your message was sent successfully! I will be in touch as soon as I can.
-                            </span>
-                        </div>
-                        <div id="error">
-                            <span>
-                                Something went wrong, try refreshing and submitting the form again.
-                            </span>
-                        </div>
                     </div>
                 </div>
                
