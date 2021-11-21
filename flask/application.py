@@ -5,7 +5,7 @@ import pandas as pd
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import make_classification
-rf = pickle.load(open('/home/abhimat/Desktop/Nemesis-main/flask/finalized_model.sav', 'rb'))
+rf = pickle.load(open('/home/abhimat/Desktop/Case Files/Nemesis-main/flask/finalized_model.sav', 'rb'))
 
 
 app=Flask(__name__)
@@ -42,6 +42,9 @@ def contact():
 def doctors():
 	return render_template('doctors.html')
 
+@app.route('/order')
+def order():
+	return render_template('order.html')
 
 @app.route('/predict', methods=['GET','POST'])
 def predict():
@@ -114,4 +117,4 @@ def MailMe():
 		return render_template("index.html",text="Something went wrong. Please try it later")
 
 if __name__=="__main__":
-	app.run()
+	app.run(debug=True)
