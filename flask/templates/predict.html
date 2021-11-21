@@ -76,7 +76,7 @@
                             <li><a href="single-service.html">single service</a></li>
                         </ul>
                     </li> -->
-                    <li class="active"> <a href="/predict">Predict</a></li>
+                    <li class="active"> <a href="/predict">Predict Adherence</a></li>
                     <li><a href="/patient_query">Patient Query</a></li>
                     <li><a href="/patient_appointments">patient_appointments</a></li>
                     <li><a href="/">Logout</a></li>
@@ -132,11 +132,18 @@
                                         <label for="contact_femail">E-mail Address</label>
                                         <input type="email" class="form-control" id="contact_femail" name="email">
                                     </div>
+                                    <div class="input-group">
+                                        <label for="contact_lname">Healthcare Coverage</label>
+                                        <input type="number" class="form-control" name="healthcare">
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="input-group">
                                         <label for="contact_lname">Gender (M/F)</label>
-                                        <input type="text" class="form-control" id="contact_lname" name="gender">
+                                        <select  class="form-control" id="contact_fphone" name="gender"style="padding: 14px;width:100%;" required>
+                                            <option value="Department1">M</option>
+                                            <option value="Department2">F</option>
+                                        </select>
                                     </div>
                                     <div class="input-group">
                                         <label for="contact_fphone">Age</label>
@@ -146,24 +153,28 @@
                                 <div class="col-sm-6">
                                     <div class="input-group">
                                         <label for="contact_lname">Race (White /Other)</label>
-                                        <input type="text" class="form-control" id="contact_lname" name="race">
+                                        <select class="form-control" id="contact_fphone" name="race"style="padding: 14px;width:100%;" required>
+                                            <option value="Department1">White</option>
+                                            <option value="Department2">Other</option>
+                                        </select>
                                     </div>
                                     <div class="input-group">
                                         <label for="contact_fphone">Ethicity (Nonhispanic / Hispanic)</label>
-                                        <input type="text" class="form-control" id="contact_fphone" name="eth">
+                                        <select class="form-control" id="contact_fphone" name="eth"style="padding: 14px;width:100%;" required>
+                                            <option value="Department1">Nonhispanic</option>
+                                            <option value="Department2">Hispanic</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="input-group">
-                                        <label for="contact_lname">Healthcare Coverage</label>
-                                        <input type="number" class="form-control" name="healthcare">
-                                    </div>
-                                </div>
+                                
                                 <div class="row m0">
                                     <div class="col-sm-12">
                                         <input type="submit" class="submit_btn" value="submit">
+                                        <br>
+                                        <br>
+
                                         <span class="green textcenter">
-                                            {{msg}}
+                                            <h3>{{msg}}</h3>
                                         </span>
                                     </div>
                                 </div>                                
