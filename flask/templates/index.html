@@ -46,6 +46,24 @@
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
     
 </head>
 <body class="default home3">
@@ -53,7 +71,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="/"><img src="{{url_for('static',filename='images/logo/1.png')}}" alt=""></a>
+                <a class="navbar-brand" href="/index"><img src="{{url_for('static',filename='images/logo/1.png')}}" alt=""></a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -75,11 +93,11 @@
                             <li><a href="single-service.html">single service</a></li>
                         </ul>
                     </li> -->
-                    <li><a href="/perdict">Perdict</a></li>
+                    <li><a href="/order">Order Medicines</a></li>
                     <li><a href="/analysis">Analysis</a></li>
                     <li><a href="/about">About us</a></li>
                     <li><a href="/contact">contact</a></li>
-                    <li><a href="/login">Login</a></li>
+                    <li><a href="/">Logout</a></li>
                     <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">book appointment</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -176,10 +194,10 @@
                             <div class="row m0 input_row">
                                 <label for="app_phone">Select Department</label> <br>  <br>
                                     <select name="department_name" id="department_name" name="department_name"style="padding: 5px;width:100%;" required>
-                                        <option value="Department1">Department1</option>
-                                        <option value="Department2">Department2</option>
-                                        <option value="Department3">Department3</option>
-                                        <option value="Department4">Department4</option>
+                                        <option value="Department1">Radiology Department</option>
+                                        <option value="Department2">Outpatient Department</option>
+                                        <option value="Department3">Paramedical Departments</option>
+                                        <option value="Department4">Nursing Department</option>
                                     </select>
                             </div>
                            <div class="row m0 input_row">
@@ -204,59 +222,135 @@
         </div>
     </section>
     
-    <section class="row service_block_row bgf">
+    <section class="row contact_form_row">
         <div class="container">
-            <div class="row titleRow">
-                
-                <h2>AVAILABLE SERVICES</h2>
-            </div>
             <div class="row">
-                <div class="col-sm-6 col-md-4 service_block">
-                    <div class="row m0 inner">
-                        <div class="row icon"><img src="{{url_for('static',filename='images/icons/service_block/1.png')}}" alt=""></div>
-                        <a href="single-service.html"><h4>HEART SURGERY</h4></a>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur cing elit. Aliq uam porttitor, nuncso content text will appear.</p> -->
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 service_block">
-                    <div class="row m0 inner">
-                        <div class="row icon"><img src="{{url_for('static',filename='images/icons/service_block/2.png')}}" alt=""></div>
-                        <a href="single-service.html"><h4>dna testing</h4></a>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur cing elit. Aliq uam porttitor, nuncso content text will appear.</p> -->
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 service_block">
-                    <div class="row m0 inner">
-                        <div class="row icon"><img src="{{url_for('static',filename='images/icons/service_block/3.png')}}" alt=""></div>
-                        <a href="single-service.html"><h4>general treatment</h4></a>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur cing elit. Aliq uam porttitor, nuncso content text will appear.</p> -->
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 service_block">
-                    <div class="row m0 inner">
-                        <div class="row icon"><img src="{{url_for('static',filename='images/icons/service_block/4.png')}}" alt=""></div>
-                        <a href="single-service.html"><h4>emergency services</h4></a>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur cing elit. Aliq uam porttitor, nuncso content text will appear.</p> -->
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 service_block">
-                    <div class="row m0 inner">
-                        <div class="row icon"><img src="{{url_for('static',filename='images/icons/service_block/5.png')}}" alt=""></div>
-                        <a href="single-service.html"><h4>ear surgery</h4></a>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur cing elit. Aliq uam porttitor, nuncso content text will appear.</p> -->
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 service_block">
-                    <div class="row m0 inner">
-                        <div class="row icon"><img src="{{url_for('static',filename='images/icons/service_block/6.png')}}" alt=""></div>
-                        <a href="single-service.html"><h4>dental care</h4></a>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur cing elit. Aliq uam porttitor, nuncso content text will appear.</p> -->
+                <div class="contact_form_area">
+                    <h3 class="contact_section_title">Your Details</h3>
+                    <div class="contactForm row m0">
+                        <form method="post" class="row contact_form">
+                            <div class="row m0">
+
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <label for="contact_fname">Name</label>
+                                        <!-- <input type="text" class="form-control" id="contact_fname" name="name"> -->
+                                        <p>Abhimat Gupta</p>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="contact_femail">E-mail Address</label>
+                                        <p>abhimatg0004@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <label for="contact_lname">Gender (M/F)</label>
+                                        <p>M</p>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="contact_fphone">Age</label>
+                                        <p>22</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <label for="contact_lname">Diagnosed Disease</label>
+                                        <p>Fever</p>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="contact_fphone">SSN Number</label>
+                                        <p>7894574236</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <label for="contact_lname">Phone Number</label>
+                                        <p>7897897899</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <label for="contact_lname">Your Doctor</label>
+                                        <p>Dr. NK Verma</p>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <br>
+                            <p>Click below if you have any query about medication or if you show any side effects from medication</p>
+                            <a href="/contact" class="view_all view_all_blue">Contact Doctor</a>
+
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
      
+
+    <section class="row contact_form_row">
+        <div class="container">
+            <div class="row">
+                <div class="contact_form_area">
+                    <h3 class="contact_section_title">Your Medication Details</h3>
+                    <div class="contactForm row m0">
+                        <form method="post" class="row contact_form">
+                            <div class="row m0">
+                                <table>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Dose Pre Day</th>
+                                      <th>Time Interval</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Alfreds Futterkiste</td>
+                                      <td>Maria Anders</td>
+                                      <td>Germany</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Centro comercial Moctezuma</td>
+                                      <td>Francisco Chang</td>
+                                      <td>Mexico</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Ernst Handel</td>
+                                      <td>Roland Mendel</td>
+                                      <td>Austria</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Island Trading</td>
+                                      <td>Helen Bennett</td>
+                                      <td>UK</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Laughing Bacchus Winecellars</td>
+                                      <td>Yoshi Tannamuri</td>
+                                      <td>Canada</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Magazzini Alimentari Riuniti</td>
+                                      <td>Giovanni Rovelli</td>
+                                      <td>Italy</td>
+                                    </tr>
+                                  </table>
+
+                                                      
+                            </div>
+                            <br>
+                            <p>Click below if you want a medicen reminder for you (The alert will pop on your phone 10 minutes before the scheduled of dose)</p>
+                            <a href="/contact" class="view_all view_all_blue">Signup for reminders</a>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     
+
+
+
     <section class="row book_bannerType2">
         <div class="container">
             <div class="row m0">
@@ -275,7 +369,7 @@
                     <div class="heading row m0"><img src="{{url_for('static',filename='images/logo/1.png')}}" alt=""></div>
                     <div class="row menuList">
                         <ul class="firstOrderList nav">
-                            <li ><a href="/">home</a></li>
+                            <li ><a href="/index">home</a></li>
                             <!-- <li><a href="#">services</a></li> -->
                             <li><a href="/doctors">doctors</a></li>
                             <li ><a href="/analysis">Analysis</a></li>
@@ -382,10 +476,8 @@
                                 <select name="doctor_name" id="doctor_name" style="padding: 5px;width:100%;" >
                                     <option value="Department1">Radiology Department</option>
                                     <option value="Department2">Outpatient Department</option>
-                                    <option value="Department3">Paramedical Departments
-                                    </option>
-                                    <option value="Department4">Nursing Department
-                                    </option>
+                                    <option value="Department3">Paramedical Departments</option>
+                                    <option value="Department4">Nursing Department</option>
                                 </select>
                             </div>
                            <div class="row m0 input_row">
