@@ -19,6 +19,8 @@ app.config['MAIL_USERNAME']='nemesisunited01@gmail.com'
 app.config['MAIL_PASSWORD']='Demo@123'
 app.config['MAIL_DEFAULT_SENDER']='nemesisunited01@gmail.com'
 mail=Mail(app)
+email = 'abhimatg0004@gmail.com'
+
 
 @app.route('/index')
 def index():
@@ -49,7 +51,6 @@ def login():
 				return redirect(url_for("index"))
 			else:
 				return redirect(url_for("index_doctors"))
-	
 	return render_template('login.html')  
 
 
@@ -62,9 +63,11 @@ def about():
 def contact():
 	return render_template('contact.html')
 
-@app.route('/doctors')
+@app.route('/analysis')
 def doctors():
-	return render_template('doctors.html')
+	return render_template('analysis.html')
+
+
 
 @app.route('/order')
 def order():
@@ -137,19 +140,19 @@ def camail():
 @app.route('/uqmail', methods=['POST', 'GET'])
 def uqmail():
 	global email
-	reply=request.form.get("reply")
-	
+	reply="There is no need to worry, keep taking medication for next 3 Days"
 	try:
 		msg1=Message(
 			subject='Reply to query',
 			recipients=[email],
-			body="SSN Number: 78998789\nName: Abhimat Gupta\nEmail: abhimatg0004@gmail.com\nProblem Description: Fever doesn't respond to medication\n\nReply: {}".format(reply)
+			body="SSN Number: 78998789\nName: Abhimat Gupta\nEmail: abhimatg0004@gmail.com\nProblem Description: Fever doesn't respond well to medication\n\nReply: {} \n\n Thanks \n\n Get Well Soon".format(reply)
 		)
 		mail.send(msg1)
 		return render_template("index_doctors.html")
 	except Exception:
 		return render_template("index_doctors.html")
-	
+
+
 @app.route('/remail', methods=['POST', 'GET'])
 def remail():
 	global email
@@ -164,6 +167,7 @@ def remail():
 	except Exception:
 		return render_template("index.html",text="Something went wrong. Please try it later")
 
+
 @app.route('/ordermail', methods=['POST', 'GET'])
 def ordermail():
 	global email
@@ -177,6 +181,7 @@ def ordermail():
 		return render_template("index.html",text="Ordered Medicines")
 	except Exception:
 		return render_template("index.html",text="Something went wrong. Please try it later")
+
 
 @app.route('/contactmail', methods=['POST', 'GET'])
 def contactmail():
@@ -195,6 +200,7 @@ def contactmail():
 		return render_template("index.html",text="Successfully Sent")
 	except Exception:
 		return render_template("index.html",text="Something went wrong. Please try it later")
+
 
 
 @app.route('/MailMe', methods=['POST', 'GET'])
