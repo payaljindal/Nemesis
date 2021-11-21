@@ -98,8 +98,8 @@ def predict():
 def appointment():
 	return render_template('book-appointment.html')
 
-@app.route('/rem_mail', methods=['POST', 'GET'])
-def rem_mail():
+@app.route('/remail', methods=['POST', 'GET'])
+def remail():
 	global email
 	try:
 		msg1=Message(
@@ -112,8 +112,8 @@ def rem_mail():
 	except Exception:
 		return render_template("index.html",text="Something went wrong. Please try it later")
 
-@app.route('/OrderMail', methods=['POST', 'GET'])
-def OrderMail():
+@app.route('/ordermail', methods=['POST', 'GET'])
+def ordermail():
 	global email
 	try:
 		msg1=Message(
@@ -126,8 +126,8 @@ def OrderMail():
 	except Exception:
 		return render_template("index.html",text="Something went wrong. Please try it later")
 
-@app.route('/ContactMail', methods=['POST', 'GET'])
-def ContactMail():
+@app.route('/contactmail', methods=['POST', 'GET'])
+def contactmail():
 	fname=request.form.get("contact_fname")
 	lname=request.form.get("contact_lname")
 	emailid=request.form.get("contact_femail")
