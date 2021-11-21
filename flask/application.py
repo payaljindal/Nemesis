@@ -5,7 +5,7 @@ import pandas as pd
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import make_classification
-rf = pickle.load(open('/home/abhimat/Desktop/Case Files/Nemesis-main/flask/finalized_model.sav', 'rb'))
+#rf = pickle.load(open('/home/abhimat/Desktop/Case Files/Nemesis-main/flask/finalized_model.sav', 'rb'))
 
 
 app=Flask(__name__)
@@ -17,6 +17,9 @@ app.config['MAIL_USERNAME']='nemesisunited01@gmail.com'
 app.config['MAIL_PASSWORD']='Demo@123'
 app.config['MAIL_DEFAULT_SENDER']='nemesisunited01@gmail.com'
 mail=Mail(app)
+
+
+email="abhimatg0004@gmail.com"
 
 @app.route('/index')
 def index():
@@ -95,8 +98,56 @@ def predict():
 def appointment():
 	return render_template('book-appointment.html')
 
+@app.route('/rem_mail', methods=['POST', 'GET'])
+def rem_mail():
+	global email
+	try:
+		msg1=Message(
+			subject='Reminder Set',
+			recipients=[email],
+			body="You will recieve medication reminder 10minutes before it should be taken"
+		)
+		mail.send(msg1)
+		return render_template("index.html",text="Reminders Set")
+	except Exception:
+		return render_template("index.html",text="Something went wrong. Please try it later")
+
+@app.route('/OrderMail', methods=['POST', 'GET'])
+def OrderMail():
+	global email
+	try:
+		msg1=Message(
+			subject='Medicines Ordered',
+			recipients=[email],
+			body="Medicines ordered successfully.\nYou will receive order within 5days."
+		)
+		mail.send(msg1)
+		return render_template("index.html",text="Ordered Medicines")
+	except Exception:
+		return render_template("index.html",text="Something went wrong. Please try it later")
+
+@app.route('/ContactMail', methods=['POST', 'GET'])
+def ContactMail():
+	fname=request.form.get("contact_fname")
+	lname=request.form.get("contact_lname")
+	emailid=request.form.get("contact_femail")
+	problem=request.form.get("contact_fmsg")
+	
+	try:
+		msg1=Message(
+			subject='Problem Received',
+			recipients=[emailid],
+			body="{} {}, we successfully receieved your problem.\n\nThe problem statement id as below\n{}\n".format(fname,lname,problem)
+		)
+		mail.send(msg1)
+		return render_template("index.html",text="Successfully Sent")
+	except Exception:
+		return render_template("index.html",text="Something went wrong. Please try it later")
+
+
 @app.route('/MailMe', methods=['POST', 'GET'])
 def MailMe():
+	global email
 	fname=request.form.get("app_fname")
 	lname=request.form.get("app_lname")
 	email=request.form.get("app_email")
@@ -104,15 +155,22 @@ def MailMe():
 	department=request.form.get("department_name")
 	date=request.form.get("app_date")
 	symptoms=request.form.get("app_texts")
-	print(department)
 	try:
 		msg=Message(
-			subject='Set Appointment Form',
-			recipients=['nemesisunited01@gmail.com'],
-			body="{} {} wanna set appointment on date {}.\n\n. Here are the details:\n\nEmail: {}\n\nPhone: {}\n\nDepartment:{}\n\n Symptoms:{}\n".format(fname,lname,date,email,phone,department,symptoms)
+			subject='Confirmation mail',
+			recipients=[email],
+			body="Recieved your request to setup up the appointment on 25/11/2021"
 		)
 		mail.send(msg)
+
+		msg1=Message(
+			subject='Set Appointment Form',
+			recipients=['nemesisunited01@gmail.com'],
+			body="{} {} wanna set appointment 25/11/2021.\n\nHere are the details:\n\nEmail: {}\n\nPhone: {}\n\nDepartment:{}\n\nSymptoms:{}\n".format(fname,lname,email,phone,department,symptoms)
+		)
+		mail.send(msg1)
 		return render_template("index.html",text="Your appointment is scheduled please add date and time to your calendars")
+	
 	except Exception:
 		return render_template("index.html",text="Something went wrong. Please try it later")
 
