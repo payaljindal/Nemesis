@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nemesis</title>
+    
+     <!--Favicons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{url_for('static',filename='favicon/apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{url_for('static',filename='favicon/apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static',filename='favicon/apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static',filename='favicon/apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static',filename='favicon/apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{url_for('static',filename='favicon/apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{url_for('static',filename='favicon/apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{url_for('static',filename='favicon/apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon/apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{url_for('static',filename='favicon/android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{url_for('static',filename='favicon/favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename='favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static',filename='favicon/manifest.json')}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!--Bootstrap and Other Vendors-->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='vendors/owl.carousel/css/owl.carousel.min.css')}}">    
+    <link rel="stylesheet" href="{{url_for('static',filename='vendors/owl.carousel/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='vendors/flexslider/flexslider.css')}}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='vendors/bootstrap-datepicker/css/datepicker3.css')}}" media="screen">
+    
+    <!--Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <!--Mechanic Styles-->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/default/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive/responsive.css')}}">
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+    
+</head>
+<body class="default home3">
+    <nav class="navbar navbar-default navbar-static-top navbar3">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/index"><img src="{{url_for('static',filename='images/logo/1.png')}}" alt=""></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->            
+            <div class="collapse navbar-collapse" id="main_nav">                
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active dropdown">
+                        <a href="/index_doctors">Home</a>
+                    </li>
+                    <!-- <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html">services</a></li>
+                            <li><a href="single-service.html">single service</a></li>
+                        </ul>
+                    </li> -->
+                    <li > <a href="/predict">Predict</a></li>
+                    <li ><a href="/patient_query">Patient Query</a></li>
+                    <li class="active"><a href="/patient_appointments">patient_appointments</a></li>
+                    <li><a href="/">Logout</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+    <br>
+    <br>
+    <section class="row page_intro">
+        <div class="row m0 inner">
+            <div class="container">
+                <div class="row">
+                    <h5>Appointments</h5>
+                    <h2>Patients Appointments</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="row breadcrumbRow">
+        <div class="container">
+            <div class="row inner m0">
+                <ul class="breadcrumb">
+                    <li><a href="/index">Home</a></li>
+                    <li>Patients Appointments</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+     
+
+    <section class="row contact_form_row">
+        <div class="container">
+            <div class="row">
+                <div class="contact_form_area">
+                    <h3 class="contact_section_title">Your Medication Details</h3>
+                    <div class="contactForm row m0">
+                        <form method="post" class="row contact_form">
+                            <div class="row m0">
+                                <table>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>SSN Number</th>
+                                      <th>E Mail</th>
+                                      <th>Date & Time</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Abhimat Gupta</td>
+                                      <td>789789987</td>
+                                      <td>abhimatg0004@gmail.com</td>
+                                      <td>25 - 11 -2021</td>
+                                    </tr>
+                                </table>                      
+                            </div>
+                            <br>
+                            <a href="/contact" class="view_all view_all_blue">Confirm Appointment</a>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     
+
+
+
+    
+     <footer class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-6 col-lg-5 footer_menuList">
+                    <div class="heading row m0"><img src="{{url_for('static',filename='images/logo/1.png')}}" alt=""></div>
+                    <div class="row menuList">
+                        <ul class="firstOrderList nav">
+                            <li ><a href="/index">home</a></li>
+                            <!-- <li><a href="#">services</a></li> -->
+                            <li><a href="/doctors">doctors</a></li>
+                            <li ><a href="/analysis">Analysis</a></li>
+                        </ul>
+                        <ul class="secondOrderList nav">                                
+                            
+                            <li class="active"><a href="/contact">contact</a></li>
+                            <li><a href="/about">About us</a></li>
+                            
+                        </ul>
+                        <ul class="thirdOrderList nav">
+                            <li><a href="#">terms &amp; condition</a></li>
+                            <li><a href="#">privacy policy</a></li>
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-6 col-lg-3 footer_address">
+                    <div class="heading row m0"></div>
+                    <div class="row address m0">
+                        <div class="media address_line">
+                            <div class="media-left icon"><i class="fa fa-map-marker"></i></div>
+                            <div class="media-body address_text">Area xyz, Near Model Town <br>Chandigarh, Punjab, India</div>
+                        </div>
+                        <div class="media address_line">
+                            <div class="media-left icon"><i class="fa fa-envelope"></i></div>
+                            <div class="media-body address_text">help@nemesis.com</div>
+                        </div>
+                        <div class="media address_line">
+                            <div class="media-left icon"><i class="fa fa-phone"></i></div>
+                            <div class="media-body address_text">9876480428</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 newsletter">
+                    <div class="heading row m0">
+                        <h2>subscibe!</h2>
+                    </div>
+                    <form action="#" class="row m0 appointment_home_form2 newsletter_form2">
+                        <div class="form_inputs row m0">
+                            <div class="row m0 input_row">
+                                <div class="col-xs-6 p0">
+                                    <label for="newsl_fname">First Name</label>
+                                    <input type="text" class="form-control" id="newsl_fname" placeholder="Your First Name">
+                                </div>
+                                <div class="col-xs-6 p0">
+                                    <label for="newsl_lname">Last Name</label>
+                                    <input type="text" class="form-control" id="newsl_lname" placeholder="Your Last Name">
+                                </div>
+                            </div>
+                            <div class="row m0 input_row">
+                                <label for="newsl_email">Email Address</label>
+                                <input type="email" class="form-control" id="newsl_email" placeholder="Enter your Email Address">
+                            </div>
+                            <input type="submit" class="form-control" value="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row m0 footer_bottom">
+                <ul class="list-inline social_menu m0 fleft">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+                <div class="fright copyright">&copy; <a href="/">nemesis</a>. Made with love for great people.</div>
+            </div>
+        </div>
+    </footer>
+    
+
+    
+    <!--jQuery, Bootstrap and other vendor JS-->
+    
+    <!--jQuery-->
+    <script src="{{url_for('static',filename='js/jquery-2.1.3.min.js')}}"></script>
+    
+    <!--Bootstrap JS-->
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    
+    <!--Owl Carousel-->
+    <script src="{{url_for('static',filename='vendors/owl.carousel/js/owl.carousel.min.js')}}"></script>
+    
+    <!--Counter Up-->
+    <script src="{{url_for('static',filename='vendors/counterup/jquery.counterup.min.js')}}"></script>
+    
+    <!--Waypoints-->
+    <script src="{{url_for('static',filename='vendors/waypoints/waypoints.min.js')}}"></script>
+    
+    <!--Bootstrap Date-->
+    <script src="{{url_for('static',filename='vendors/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+    
+    <!--FlexSlider-->
+    <script src="{{url_for('static',filename='vendors/flexslider/jquery.flexslider-min.js')}}"></script>
+    
+    <!--Strella JS-->
+    <script src="{{url_for('static',filename='js/theme.js')}}"></script>
+</body>
+</html>
