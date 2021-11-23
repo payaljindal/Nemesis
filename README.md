@@ -13,7 +13,7 @@ Basically,  <br>
 
 ## Tech Stack
 **Frontend** - HTML, CSS, Bootstrap, Js <br> 
-**Backend** - Flask <br>
+**Backend** - Flask, Python <br>
 **Python** for analysis part
 
 Notebook Link - https://colab.research.google.com/drive/1UdvSga4UeaUBioDXcXroZb4JaWAWpgO0?authuser=1#scrollTo=Zz5rlNk7OBEU
